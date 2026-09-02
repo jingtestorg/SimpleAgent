@@ -1,0 +1,124 @@
+[
+  {
+    "name": "get_metadata_sap_self",
+    "title": "get_metadata_sap_self",
+    "description": "Get metadata of the OData service.",
+    "odataType": {
+      "metadataRequest": {}
+    }
+  },
+  {
+    "name": "list_a_costcenter_2_for_sap_self",
+    "title": "list_A_CostCenter_2_for_sap_self",
+    "description": "Retrieve a list of cost center entities from A_CostCenter_2. Supports $filter, $select, $orderby, $top, $skip, $expand, $count.",
+    "odataType": {
+      "entitySet": {
+        "name": "A_CostCenter_2",
+        "crudOperation": "read",
+        "parameters": [
+          {
+            "name": "filter"
+          },
+          {
+            "name": "select"
+          },
+          {
+            "name": "orderby"
+          },
+          {
+            "name": "top"
+          },
+          {
+            "name": "skip"
+          },
+          {
+            "name": "expand"
+          },
+          {
+            "name": "count"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "count_a_costcenter_2_for_sap_self",
+    "title": "count_A_CostCenter_2_for_sap_self",
+    "description": "Get the total count of cost centers in A_CostCenter_2. Supports $filter.",
+    "odataType": {
+      "entitySet": {
+        "name": "A_CostCenter_2",
+        "crudOperation": "count",
+        "parameters": [
+          {
+            "name": "filter"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "get_a_costcenter_2_for_sap_self",
+    "title": "get_A_CostCenter_2_for_sap_self",
+    "description": "Retrieve a single cost center entity by key from A_CostCenter_2.",
+    "odataType": {
+      "entitySet": {
+        "name": "A_CostCenter_2",
+        "crudOperation": "readByKey",
+        "parameters": [
+          {
+            "name": "ControllingArea",
+            "newParameterName": "controllingarea"
+          },
+          {
+            "name": "CostCenter",
+            "newParameterName": "costcenter"
+          },
+          {
+            "name": "ValidityEndDate",
+            "newParameterName": "validityenddate"
+          },
+          {
+            "name": "select"
+          },
+          {
+            "name": "expand"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "create_a_costcenter_2_for_sap_self",
+    "title": "create_A_CostCenter_2_for_sap_self",
+    "description": "Create a new cost center entity.",
+    "odataType": {
+      "entitySet": {
+        "name": "A_CostCenter_2",
+        "crudOperation": "create"
+      }
+    }
+  },
+  {
+    "name": "update_a_costcenter_2_for_sap_self",
+    "title": "update_A_CostCenter_2_for_sap_self",
+    "description": "Update a cost center entity.",
+    "odataType": {
+      "entitySet": {
+        "name": "A_CostCenter_2",
+        "crudOperation": "update"
+      }
+    }
+  },
+  {
+    "name": "delete_a_costcenter_2_for_sap_self",
+    "title": "delete_A_CostCenter_2_for_sap_self",
+    "description": "Delete a cost center entity.",
+    "odataType": {
+      "entitySet": {
+        "name": "A_CostCenter_2",
+        "crudOperation": "delete"
+      }
+    }
+  }
+]

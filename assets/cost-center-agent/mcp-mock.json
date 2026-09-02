@@ -1,0 +1,210 @@
+{
+  "servers": {
+    "sap-s4-ce-costcenter-0001": {
+      "mcp_server_name": "sap.mcp/sap_self",
+      "description": "MCP server for SAP S/4HANA Cost Center OData API (CE_COSTCENTER_0001)",
+      "tools": {
+        "get_metadata_sap_self": {
+          "description": "Get metadata of the OData service.",
+          "input_schema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "mock_response": {
+            "metadata": "<edmx:Edmx Version=\"4.0\">...</edmx:Edmx>"
+          }
+        },
+        "list_a_costcenter_2_for_sap_self": {
+          "description": "Retrieve a list of cost center entities from A_CostCenter_2. Supports $filter, $select, $orderby, $top, $skip, $expand, $count.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "filter": {"type": "string", "description": "OData $filter expression"},
+              "select": {"type": "string", "description": "Comma-separated fields to return"},
+              "orderby": {"type": "string", "description": "OData $orderby expression"},
+              "top": {"type": "integer", "description": "Maximum number of results"},
+              "skip": {"type": "integer", "description": "Number of records to skip"},
+              "expand": {"type": "string", "description": "Navigation properties to expand"},
+              "count": {"type": "boolean", "description": "Include count in response"}
+            },
+            "required": []
+          },
+          "mock_response": {
+            "@odata.count": 42,
+            "value": [
+              {
+                "ControllingArea": "A000",
+                "CostCenter": "CC0010",
+                "ValidityEndDate": "9999-12-31",
+                "ValidityStartDate": "2020-01-01",
+                "CostCenterName": "Corporate Finance",
+                "CostCenterDescription": "Corporate Finance Department",
+                "CompanyCode": "1000",
+                "BusinessArea": "0001",
+                "CostCenterCategory": "F",
+                "CostCtrResponsiblePersonName": "John Smith",
+                "CostCenterCurrency": "USD",
+                "ProfitCenter": "PC1000",
+                "Department": "FINANCE"
+              },
+              {
+                "ControllingArea": "A000",
+                "CostCenter": "CC0020",
+                "ValidityEndDate": "9999-12-31",
+                "ValidityStartDate": "2020-01-01",
+                "CostCenterName": "Human Resources",
+                "CostCenterDescription": "HR Department",
+                "CompanyCode": "1000",
+                "BusinessArea": "0001",
+                "CostCenterCategory": "F",
+                "CostCtrResponsiblePersonName": "Jane Doe",
+                "CostCenterCurrency": "USD",
+                "ProfitCenter": "PC1000",
+                "Department": "HR"
+              },
+              {
+                "ControllingArea": "A000",
+                "CostCenter": "CC0030",
+                "ValidityEndDate": "9999-12-31",
+                "ValidityStartDate": "2020-01-01",
+                "CostCenterName": "Information Technology",
+                "CostCenterDescription": "IT Department",
+                "CompanyCode": "1000",
+                "BusinessArea": "0001",
+                "CostCenterCategory": "F",
+                "CostCtrResponsiblePersonName": "Bob Johnson",
+                "CostCenterCurrency": "USD",
+                "ProfitCenter": "PC1000",
+                "Department": "IT"
+              },
+              {
+                "ControllingArea": "A000",
+                "CostCenter": "CC0040",
+                "ValidityEndDate": "9999-12-31",
+                "ValidityStartDate": "2020-01-01",
+                "CostCenterName": "Sales & Marketing",
+                "CostCenterDescription": "Sales and Marketing",
+                "CompanyCode": "1000",
+                "BusinessArea": "0002",
+                "CostCenterCategory": "V",
+                "CostCtrResponsiblePersonName": "Alice Brown",
+                "CostCenterCurrency": "USD",
+                "ProfitCenter": "PC2000",
+                "Department": "SALES"
+              },
+              {
+                "ControllingArea": "A000",
+                "CostCenter": "CC0050",
+                "ValidityEndDate": "9999-12-31",
+                "ValidityStartDate": "2020-01-01",
+                "CostCenterName": "Operations",
+                "CostCenterDescription": "Operations Department",
+                "CompanyCode": "1000",
+                "BusinessArea": "0003",
+                "CostCenterCategory": "F",
+                "CostCtrResponsiblePersonName": "Carol Davis",
+                "CostCenterCurrency": "USD",
+                "ProfitCenter": "PC3000",
+                "Department": "OPS"
+              }
+            ]
+          }
+        },
+        "count_a_costcenter_2_for_sap_self": {
+          "description": "Get the total count of cost centers in A_CostCenter_2.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "filter": {"type": "string", "description": "OData $filter expression"}
+            },
+            "required": []
+          },
+          "mock_response": 42
+        },
+        "get_a_costcenter_2_for_sap_self": {
+          "description": "Retrieve a single cost center entity by key from A_CostCenter_2.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "controllingarea": {"type": "string", "description": "Controlling Area key"},
+              "costcenter": {"type": "string", "description": "Cost Center key"},
+              "validityenddate": {"type": "string", "description": "Validity End Date key"},
+              "select": {"type": "string", "description": "Fields to return"},
+              "expand": {"type": "string", "description": "Navigation properties to expand"}
+            },
+            "required": ["controllingarea", "costcenter", "validityenddate"]
+          },
+          "mock_response": {
+            "ControllingArea": "A000",
+            "CostCenter": "CC0010",
+            "ValidityEndDate": "9999-12-31",
+            "ValidityStartDate": "2020-01-01",
+            "CostCenterName": "Corporate Finance",
+            "CostCenterDescription": "Corporate Finance Department",
+            "CompanyCode": "1000",
+            "CostCenterCategory": "F",
+            "CostCenterCurrency": "USD",
+            "ProfitCenter": "PC1000",
+            "Department": "FINANCE"
+          }
+        },
+        "create_a_costcenter_2_for_sap_self": {
+          "description": "Create a new cost center entity.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "costcenter": {"type": "string"},
+              "costcentername": {"type": "string"},
+              "companycode": {"type": "string"},
+              "controllingarea": {"type": "string"}
+            },
+            "required": ["costcenter", "costcentername", "companycode"]
+          },
+          "mock_response": {
+            "ControllingArea": "A000",
+            "CostCenter": "CC0099",
+            "CostCenterName": "New Cost Center",
+            "CompanyCode": "1000"
+          }
+        },
+        "update_a_costcenter_2_for_sap_self": {
+          "description": "Update a cost center entity.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "controllingarea": {"type": "string"},
+              "costcenter": {"type": "string"},
+              "validityenddate": {"type": "string"}
+            },
+            "required": ["controllingarea", "costcenter", "validityenddate"]
+          },
+          "mock_response": {}
+        },
+        "delete_a_costcenter_2_for_sap_self": {
+          "description": "Delete a cost center entity.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "controllingarea": {"type": "string"},
+              "costcenter": {"type": "string"},
+              "validityenddate": {"type": "string"}
+            },
+            "required": ["controllingarea", "costcenter", "validityenddate"]
+          },
+          "mock_response": {}
+        }
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "created_for_agent": "cost-center-agent",
+    "mock_mode": true,
+    "deterministic": true,
+    "total_servers": 1,
+    "total_tools": 7,
+    "generated_from": ["translation.json"],
+    "generation_date": "2026-09-02"
+  }
+}
