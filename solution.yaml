@@ -1,0 +1,10 @@
+apiVersion: solution.sap/v1
+kind: Solution
+
+metadata:
+  name: hello-greeting-agent-30743
+  version: "1.0.0"
+  description: "A Python AI agent that greets users with a personalised message based on the current time of day and live weather conditions."
+
+assets:
+  - ref: ./assets/hello-greeting-agent/asset.yaml
